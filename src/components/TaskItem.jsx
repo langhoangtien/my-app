@@ -6,7 +6,7 @@ class TaskItem extends Component {
         this.props.deleteItem(this.props.task.id)
     }
     render() {
-        return (
+        return  (
             <tr>
             <th scope="row">{this.props.task.id}</th>
             <td>{this.props.task.name}</td>

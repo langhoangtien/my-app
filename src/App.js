@@ -7,14 +7,16 @@ class App extends Component {
 		super(props)
 		this.state = {
 			taskHide: true,
+			task:false
 		}
 	}
 
 	toggleTask = () => {
 		this.setState({taskHide: !this.state.taskHide})
 	}
-	saveTask(state){
-		alert(state)
+	saveTask = (state)=>{
+		this.setState({task:state,taskHide: !this.state.taskHide})
+	
 	}
 	deleteTask(id){
 
@@ -24,13 +26,16 @@ class App extends Component {
 		// })
 		// this.setState({tasks: newTask })
 	}
-	render() {
+
+
+
+	render()   {
 		return (
 			<div className="container">
 			<h3 className="text-center">Task managemant</h3>
 			<div className="row">
-			{this.state.taskHide ? "": <Task saveTask={(state)=>{this.saveTask(state)}} />  }	
-				<List deleteTask={(id)=>{this.deleteTask(id)}} tasks={this.state.tasks} toggleTask={this.toggleTask} taskHide={this.state.taskHide}/>
+			{this.state.taskHide ? "": <Task saveTask={this.saveTask} />  }	
+				<List task={this.state.task} deleteTask={(id)=>{this.deleteTask(id)}} tasks={this.state.tasks} toggleTask={this.toggleTask} taskHide={this.state.taskHide}/>
 			</div>
 		  </div>
 		)
