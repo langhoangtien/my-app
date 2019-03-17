@@ -1,11 +1,11 @@
 export const actionAddTodo = todo => ({
-  type: 'ADD_TODO',
+  type: "ADD_TODO",
   todo: {
-    value: todo.value,
-    completed: false,
-  },
+    text: todo.text,
+    completed: false
+  }
 });
 
 export const actionDecrement = {
-  type: 'DECREMENT',
+  type: "DECREMENT"
 };

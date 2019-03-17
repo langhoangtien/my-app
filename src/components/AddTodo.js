@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actionAddTodo } from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { actionAddTodo } from "../actions";
 
 class AddTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      input: ""
     };
   }
-  onAddTodo = () => this.props.addTodo({ value: this.state.input });
+  onAddTodo = () => this.props.addTodo({ text: this.state.input });
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
   render() {
@@ -40,16 +40,16 @@ class AddTodo extends Component {
 }
 
 const mapStateToProps = state => {
-  return { state };
+  return {};
 };
 const mapDispatchToProps = dispatch => {
   return {
-    addTodo: input => dispatch(actionAddTodo(input)),
+    addTodo: input => dispatch(actionAddTodo(input))
   };
 };
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+  null,
+  mapDispatchToProps
 )(AddTodo);
 
 // export default Counter;
